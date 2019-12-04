@@ -31,8 +31,6 @@ public class ElectronicAPI {
     @Autowired
     private ElectronicService electronicService;
 
-    @Autowired
-    private ElectronicRepository repository;
 
     public static ElectronicEntity initELectronic(){
         ElectronicEntity entity = new ElectronicEntity();
@@ -60,9 +58,9 @@ public class ElectronicAPI {
     }
 
     @GetMapping(value = "/api/test")
-    public ResponseEntity<List<ElectronicEntity>> findTest(){
-        List<ElectronicEntity> list = repository.search(null);
-        return new ResponseEntity<List<ElectronicEntity>>(list,HttpStatus.OK);
+    public ResponseEntity<List<ElectronicDTO>> findTest(){
+        List<ElectronicDTO> list = electronicService.findAll();
+        return new ResponseEntity<List<ElectronicDTO>>(list,HttpStatus.OK);
     }
 
     @GetMapping(value = "/api/electronic/{uri}")

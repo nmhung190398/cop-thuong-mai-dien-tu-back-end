@@ -21,22 +21,6 @@ import java.util.stream.IntStream;
 @Component
 public class FileUtils {
 
-    @Autowired
-    private FileStorageService fileStorageService;
-
-
-    public String getType(String name){
-        String rs = "";
-        int lastDot = name.length();
-        for(int i = name.length() - 1; i >= 0; --i){
-            if(name.charAt(i) == '.'){
-                lastDot= i;
-                break;
-            }
-        }
-
-        return name.substring(lastDot);
-    }
 
     public UploadFileResponse uploadFile(MultipartFile file,String fileName) {
 
@@ -60,6 +44,23 @@ public class FileUtils {
 
         return rs;
     }
+
+    @Autowired
+    private FileStorageService fileStorageService;
+
+    public String getType(String name){
+        String rs = "";
+        int lastDot = name.length();
+        for(int i = name.length() - 1; i >= 0; --i){
+            if(name.charAt(i) == '.'){
+                lastDot= i;
+                break;
+            }
+        }
+
+        return name.substring(lastDot);
+    }
+
 
     public String inputStreamToString(InputStream inputStream){
         String result = new BufferedReader(new InputStreamReader(inputStream))

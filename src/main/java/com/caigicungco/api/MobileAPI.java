@@ -24,7 +24,7 @@ public class MobileAPI {
     ElectronicService electronicService;
 
     @GetMapping(value = "/api/mobile/{producer}")
-    public ResponseEntity<ModelAPI> findByProducer(
+    public ResponseEntity<ModelAPI<ElectronicDTO>> findByProducer(
             @RequestParam("page") Integer page,
             @RequestParam(value = "pageItem",defaultValue = "10") Integer pageItem,
             @PathVariable("producer") String producer){
@@ -34,7 +34,7 @@ public class MobileAPI {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         ModelAPI<ElectronicDTO> modelAPI = new ModelAPI<>("ok",electronics);
-        return new ResponseEntity<ModelAPI>(modelAPI, HttpStatus.OK);
+        return new ResponseEntity<ModelAPI<ElectronicDTO>>(modelAPI, HttpStatus.OK);
     }
 
 

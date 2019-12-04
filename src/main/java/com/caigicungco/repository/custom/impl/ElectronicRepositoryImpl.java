@@ -6,9 +6,10 @@ import com.caigicungco.entity.ElectronicEntity;
 import com.caigicungco.repository.custom.ElectronicRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.management.Query;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 public class ElectronicRepositoryImpl implements ElectronicRepositoryCustom {
@@ -23,8 +24,9 @@ public class ElectronicRepositoryImpl implements ElectronicRepositoryCustom {
 
         String hql = "SELECT e from com.caigicungco.entity.ElectronicEntity as e " +
                 "INNER JOIN com.caigicungco.entity.CPUEntity as c ON e.cpu.id = c.id ";
+        Query query = entityManager.createQuery(hql,ElectronicEntity.class);
 
-        return entityManager.createQuery(hql).getResultList();
+        return query.getResultList();
     }
 
     @Override

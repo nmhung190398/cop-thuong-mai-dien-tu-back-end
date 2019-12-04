@@ -17,7 +17,6 @@ public class StringUtils {
         rs = rs.replaceAll(" ","-");
         return rs;
     }
-
     public static String removeTypeFile(String name){
         return name.substring(0,name.lastIndexOf("."));
     }
