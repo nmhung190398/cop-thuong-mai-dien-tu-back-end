@@ -42,6 +42,11 @@ public class ElectronicService {
 
         return page.getContent().stream().map(electronicConver::toDTO).collect(Collectors.toList());
     }
+    public Page<ElectronicDTO> findByProducerNamePage(String producerName,Pageable pageable){
+        Page<ElectronicEntity> page = repository.findByProducerName(producerName,pageable);
+
+        return page.map(electronicConver::toDTO);
+    }
 
     public boolean addAll(List<ElectronicDTO> electronics){
 

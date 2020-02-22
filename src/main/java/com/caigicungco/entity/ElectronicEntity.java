@@ -72,6 +72,9 @@ public class ElectronicEntity extends BaseEntity{
     @JoinColumn(name = "producer_id")
     private ProducerEntity producer;
 
+    @OneToMany(mappedBy = "electronic",fetch = FetchType.LAZY)
+    private List<ShopCart_ElectronicEntity> shopCart_electronics;
+
     @OneToMany(mappedBy = "electronic",cascade = CascadeType.ALL)
     private List<VersionEntity> versions;
 

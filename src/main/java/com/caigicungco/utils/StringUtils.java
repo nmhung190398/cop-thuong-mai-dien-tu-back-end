@@ -21,4 +21,9 @@ public class StringUtils {
         return name.substring(0,name.lastIndexOf("."));
     }
 
+
+    public int length(String str){
+
+        return str.length();
+    }
 }

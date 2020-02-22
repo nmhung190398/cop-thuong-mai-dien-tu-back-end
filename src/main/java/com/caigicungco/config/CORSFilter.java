@@ -8,8 +8,8 @@ public class CORSFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		
-		
+
+
 	}
 
 	@Override
@@ -24,13 +24,13 @@ public class CORSFilter implements Filter{
 		resp.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Authorization, Origin, Accept, Access-Control-Request-Method, Access-Control-Request-Headers");
 
 		chain.doFilter(request, response);
-		
+
 	}
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
